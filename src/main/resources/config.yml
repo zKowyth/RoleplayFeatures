@@ -1,0 +1,78 @@
+#Here you can edit messages
+messages:
+  general:
+    player-not-online: '&cThe player is not online!'
+    only-players: '&cOnly players can do this!'
+  receipt:
+    usage: '&cUsage: /receipt <player> <money> <company> <items>'
+    receipt-given: '&aYou gave a receipt to {player}'
+    not-employee: '&cYou are not an employee of this company!'
+  invsee:
+    usage: '&cUsage: /invsee <player>'
+    #{distance} is the max-distance that you can set in the settings section
+    too-distant: '&You are too distant from that player! Maximum: {distance}'
+  police:
+    #{x}, {y} and {z} are the coordinates
+    receive-message: '&9&lA player called the police! &7Coordinates: &e{x} {y} {z}'
+    called: '&aYou called the police!'
+  ambulance:
+    #{x}, {y} and {z} are the coordinates
+    receive-message: '&c&lA player called an ambulance! &7Coordinates: &e{x} {y} {z}'
+    called: '&aYou called an ambulance!'
+  mask:
+    helmet-on: '&cYou have a helmet on your head! You cant use the mask.'
+items:
+  receipt:
+    #{company} is the company argument of the /receipt command
+    display-name: '&e&lReceipt of {company}'
+    id: PAPER
+    lore:
+      - '&7To: &a{to_player}'
+      - '&7By: &a{by_player}'
+      - '&7Money: &a{money}'
+      - '&7Items: &a{items}'
+  handcuffs:
+    display-name: '&b&lHandcuffs'
+    id: STRING
+    lore:
+      - '&7Right click on a player'
+      - '&7to give him slowness.'
+  mask:
+    display-name: '&c&lAnonymous Mask'
+    id: SLIME_BALL
+    lore:
+      - '&7Right click to put the mask on'
+      - '&7and hide your name!'
+settings:
+  receipt:
+    command: 'receipt'
+  invsee:
+    command: 'invsee'
+    max-distance: 5
+  police:
+    command: 'police'
+    receive-permission: 'rf.police.receive'
+  ambulance:
+    command: 'ambulance'
+    receive-permission: 'rf.ambulance.receive'
+  handcuffs:
+    command: 'handcuffs'
+    #'slowness' or 'nothing'(Use nothing if you want, for example, to make a custom action using the developer API)
+    action-on-player: 'slowness'
+    slowness-duration: 30
+  mask:
+    command: 'mask'
+    receive-permission: 'rf.mask'
+    message-format: '&7Anonymous: {message}'
+    chat-distance: 10
+permissions:
+  help: 'rf.help'
+  reload: 'rf.reload'
+  #{company} is the company argument of the /receipt command,
+  #if the player has the permission of that argument he can make the receipt
+  receipt: 'rf.receipt.{company}'
+  invsee: 'rf.invsee'
+  police: 'rf.police'
+  ambulance: 'rf.ambulance'
+  handcuffs: 'rf.handcuffs'
+  mask: 'rf.mask'

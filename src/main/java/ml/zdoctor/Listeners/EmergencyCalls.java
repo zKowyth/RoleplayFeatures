@@ -1,0 +1,37 @@
+package ml.zdoctor.Listeners;
+
+import ml.zdoctor.API.AmbulanceCallEvent;
+import ml.zdoctor.API.PoliceCallEvent;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+
+import static ml.zdoctor.API.API.*;
+
+public class EmergencyCalls implements Listener {
+
+    @EventHandler
+    public void onPoliceCall(PoliceCallEvent e) {
+        Player player = e.getPlayer();
+
+        int x = player.getLocation().getBlockX();
+        int y = player.getLocation().getBlockY();
+        int z = player.getLocation().getBlockZ();
+
+        Bukkit.broadcast(getConfigMessage("police.receive-message").replace("{x}", String.valueOf(x)).replace("{y}", String.valueOf(y)).replace("{z}", String.valueOf(z)), getSettingString("police.receive-permission"));
+        e.getPlayer().sendMessage(getConfigMessage("police.called"));
+    }
+
+    @EventHandler
+    public void onAmbulanceCall(AmbulanceCallEvent e) {
+        Player player = e.getPlayer();
+
+        int x = player.getLocation().getBlockX();
+        int y = player.getLocation().getBlockY();
+        int z = player.getLocation().getBlockZ();
+
+        Bukkit.broadcast(getConfigMessage("ambulance.receive-message").replace("{x}", String.valueOf(x)).replace("{y}", String.valueOf(y)).replace("{z}", String.valueOf(z)), getSettingString("ambulance.receive-permission"));
+        e.getPlayer().sendMessage(getConfigMessage("ambulance.called"));
+    }
+}

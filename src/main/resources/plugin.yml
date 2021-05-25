@@ -1,0 +1,19 @@
+name: RoleplayFeatures
+version: ${project.version}
+main: ml.zdoctor.RoleplayFeatures
+authors: [ zDoctor_ ]
+description: Add some features that a roleplay needs
+website: zdoctor.ml
+softdepend:
+  - TAB
+commands:
+  receipt:
+    description: Give a receipt to someone
+  invsee:
+    description: See the inventory of another player
+  police:
+    description: Call the police
+  ambulance:
+    description: Call an ambulance
+  handcuffs:
+    description: gives you handcuffs
