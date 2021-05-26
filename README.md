@@ -9,7 +9,7 @@ Features will be added here as soon as they come out.
 
 ## Installation
 
-1. Download the latest release from [github](https://github.com/zDoctor-Dev/RoleplayFeatures/releases) or from [spigot]().
+1. Download the latest release from [github](https://github.com/zDoctor-Dev/RoleplayFeatures/releases) or from [spigot](https://www.spigotmc.org/resources/roleplayfeatures-fully-configurable-%E2%97%8F-must-have.92730).
 2. Put the jar file in the "plugins" folder of your server.
 3. Start/Restart your server.
 
