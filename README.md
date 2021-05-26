@@ -1,3 +1,4 @@
+[![](https://img.shields.io/github/v/release/zDoctor-Dev/RoleplayFeatures?logoColor=success)](https://github.com/zDoctor-Dev/RoleplayFeatures/releases)  [![](https://img.shields.io/badge/zdoctor.ml-%E2%9A%99%EF%B8%8F-blue)](https://zdoctor.ml)
 # RoleplayFeatures
 
 A spigot plugin that adds things of the Demon Slayer Anime
@@ -12,17 +13,9 @@ Features will be added here as soon as they come out.
 2. Put the jar file in the "plugins" folder of your server.
 3. Start/Restart your server.
 
-## Config
-
-This is the config.yml file
-
-```yaml
-WORKING ON...
-```
-
 ## Developer API
 
-This plugin has an API for developers! If you want to know how to use it, check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/Developers-API).
+This plugin has an API for developers! If you want to know how to use it, check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/API-usage).
 
 If you have problems with the API please let me know on my discord server!
 
