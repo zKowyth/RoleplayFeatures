@@ -12,17 +12,9 @@ Features will be added here as soon as they come out.
 2. Put the jar file in the "plugins" folder of your server.
 3. Start/Restart your server.
 
-## Config
-
-This is the config.yml file
-
-```yaml
-WORKING ON...
-```
-
 ## Developer API
 
-This plugin has an API for developers! If you want to know how to use it, check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/Developers-API).
+This plugin has an API for developers! If you want to know how to use it, check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/API-usage).
 
 If you have problems with the API please let me know on my discord server!
 
