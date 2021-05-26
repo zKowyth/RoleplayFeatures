@@ -1,4 +1,4 @@
-package ml.zdoctor.Listeners;
+package ml.zdoctor.listeners;
 
 import me.neznamy.tab.api.*;
 import org.bukkit.Bukkit;

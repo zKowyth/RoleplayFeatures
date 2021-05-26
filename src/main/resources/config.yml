@@ -63,6 +63,7 @@ settings:
   mask:
     command: 'mask'
     receive-permission: 'rf.mask'
+    #{message} is the message the player sent
     message-format: '&7Anonymous: {message}'
     chat-distance: 10
 permissions:

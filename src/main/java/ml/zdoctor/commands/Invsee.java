@@ -25,13 +25,13 @@ public class Invsee implements CommandExecutor {
                             ((Player) sender).openInventory(criminal.getInventory());
                             Bukkit.getServer().getPluginManager().callEvent(new InvseeOpenEvent((Player) sender, criminal, criminal.getInventory()));
                         } else {
-                            sender.sendMessage(getConfigMessage("invsee.too-distant").replace("{distance}", String.valueOf(distance)));
+                            sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.too-distant").replace("{distance}", String.valueOf(distance))));
                         }
                     } else {
-                        sender.sendMessage(getConfigMessage("general.player-not-online"));
+                        sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("general.player-not-online")));
                     }
                 } else {
-                    sender.sendMessage(getConfigMessage("invsee.usage"));
+                    sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.usage")));
                 }
             } else {
                 sender.sendMessage(getConfigMessage("general.only-players"));

@@ -19,7 +19,7 @@ public class Mask implements CommandExecutor {
 
         ItemStack mask = new ItemStack(Material.valueOf(getIDOfItem("mask")));
         ItemMeta meta = mask.getItemMeta();
-        meta.setDisplayName(getDisplayNameOfItem("mask"));
+        meta.setDisplayName(PlaceHolders((Player) sender, getDisplayNameOfItem("mask")));
         meta.setLore(getLoreOfItem("mask"));
         mask.setItemMeta(meta);
 

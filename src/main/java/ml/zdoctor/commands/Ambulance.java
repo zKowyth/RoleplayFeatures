@@ -19,7 +19,7 @@ public class Ambulance implements CommandExecutor {
                 if (sender instanceof Player) {
                     Bukkit.getServer().getPluginManager().callEvent(new AmbulanceCallEvent((Player) sender));
                 } else {
-                    sender.sendMessage(getConfigMessage("general.only-players"));
+                    sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("general.only-players")));
                 }
             }
         }

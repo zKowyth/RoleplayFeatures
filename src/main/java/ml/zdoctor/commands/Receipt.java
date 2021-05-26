@@ -38,20 +38,20 @@ public class Receipt implements CommandExecutor {
                 Player user = Bukkit.getPlayer(args[0]);
                 if (sender.hasPermission(getPermission("receipt").replace("{company}", args[2]))) {
                     if (user.isOnline()) {
-                        meta.setDisplayName(getDisplayNameOfItem("receipt").replace("{to_player}", user.getName()).replace("{by_player}", sender.getName()).replace("{money}", args[1]).replace("{items}", items).replace("{company}", args[2]));
+                        meta.setDisplayName(PlaceHolders((Player) sender, getDisplayNameOfItem("receipt").replace("{to_player}", user.getName()).replace("{by_player}", sender.getName()).replace("{money}", args[1]).replace("{items}", items).replace("{company}", args[2])));
                         meta.setLore(getLoreOfReceipt(user, (Player) sender, Integer.valueOf(args[1]), items, args[2]));
                         receipt.setItemMeta(meta);
                         user.getInventory().addItem(receipt);
-                        sender.sendMessage(getConfigMessage("receipt.receipt-given").replace("{to_player}", user.getName()).replace("{by_player}", sender.getName()).replace("{money}", args[1]).replace("{items}", items).replace("{company}", args[2]));
+                        sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("receipt.receipt-given").replace("{to_player}", user.getName()).replace("{by_player}", sender.getName()).replace("{money}", args[1]).replace("{items}", items).replace("{company}", args[2])));
                         Bukkit.getServer().getPluginManager().callEvent(new ReceiptGivenEvent((Player) sender, user, Integer.valueOf(args[1]), items));
                     } else {
-                        sender.sendMessage(getConfigMessage("general.player-not-online"));
+                        sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("general.player-not-online")));
                     }
                 } else {
-                    sender.sendMessage(getConfigMessage("receipt.not-employee"));
+                    sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("receipt.not-employee")));
                 }
             } else {
-                sender.sendMessage(getConfigMessage("receipt.usage"));
+                sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("receipt.usage")));
             }
         }
             return true;

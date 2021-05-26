@@ -16,7 +16,7 @@ public class Handcuffs implements CommandExecutor {
 
         ItemStack handcuffs = new ItemStack(Material.valueOf(getIDOfItem("handcuffs")));
         ItemMeta meta = handcuffs.getItemMeta();
-        meta.setDisplayName(getDisplayNameOfItem("handcuffs"));
+        meta.setDisplayName(PlaceHolders((Player) sender, getDisplayNameOfItem("handcuffs")));
         meta.setLore(getLoreOfItem("handcuffs"));
         handcuffs.setItemMeta(meta);
 

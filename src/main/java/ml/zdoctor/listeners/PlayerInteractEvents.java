@@ -1,4 +1,4 @@
-package ml.zdoctor.Listeners;
+package ml.zdoctor.listeners;
 
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;

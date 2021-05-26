@@ -5,6 +5,7 @@ authors: [ zDoctor_ ]
 description: Add some features that a roleplay needs
 website: zdoctor.ml
 softdepend:
+  - PlaceholderAPI
   - TAB
 commands:
   receipt:

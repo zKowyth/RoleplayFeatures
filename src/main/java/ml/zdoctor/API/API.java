@@ -1,8 +1,10 @@
 package ml.zdoctor.API;
 
+import me.clip.placeholderapi.PlaceholderAPI;
 import ml.zdoctor.RoleplayFeatures;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,9 +21,19 @@ public class API {
     }
 
     /**
-     * Returns the string from config with color codes
+     * Returns the string with placeholders
      *
-     * @return The string from config with color codes
+     * @return The string with placeholders
+     */
+    public static String PlaceHolders(Player p, String string) {
+        string = PlaceholderAPI.setPlaceholders(p, string);
+        return string;
+    }
+
+    /**
+     * Returns the string from messages config section with color codes
+     *
+     * @return The string from messages config section with color codes
      */
     public static String getConfigMessage(String path) {
         return Color(getConfiguration().getString("messages."+path));

@@ -1,9 +1,11 @@
 package ml.zdoctor;
 
-import ml.zdoctor.Listeners.EmergencyCalls;
-import ml.zdoctor.Listeners.MaskEvents;
-import ml.zdoctor.Listeners.PlayerInteractEvents;
+import ml.zdoctor.listeners.EmergencyCalls;
+import ml.zdoctor.listeners.MaskEvents;
+import ml.zdoctor.listeners.PlayerInteractEvents;
 import ml.zdoctor.commands.*;
+import ml.zdoctor.papi.Expansion;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import static ml.zdoctor.API.API.*;
@@ -22,6 +24,8 @@ public final class RoleplayFeatures extends JavaPlugin {
         getCommand(getSettingString("police.command")).setExecutor(new Police());
         getCommand(getSettingString("ambulance.command")).setExecutor(new Ambulance());
         getCommand(getSettingString("handcuffs.command")).setExecutor(new Handcuffs());
+        getCommand(getSettingString("mask.command")).setExecutor(new Mask());
+        getCommand("rf").setExecutor(new Rf());
 
         getServer().getPluginManager().registerEvents(new EmergencyCalls(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractEvents(), this);
@@ -34,7 +38,16 @@ public final class RoleplayFeatures extends JavaPlugin {
 
         if (getServer().getPluginManager().isPluginEnabled("TAB")) {
             getServer().getPluginManager().registerEvents(new MaskEvents(), this);
-            getLogger().info(Color("&e------------------"));
+            getLogger().info(Color("&aTAB plugin found! Mask enabled!"));
+        } else {
+            getLogger().info(Color("&cTAB plugin not found! Mask not enabled!"));
+        }
+
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
+            new Expansion().register();
+            getLogger().info(Color("&aPlaceholderAPI is enabled, time expansion registered!"));
+        } else {
+            getLogger().info(Color("&cPlaceholderAPI is not enabled, time expansion not registered!"));
         }
     }
 
