@@ -1,22 +1,25 @@
 package ml.zdoctor.commands;
 
-import ml.zdoctor.API.AmbulanceCallEvent;
+import ml.zdoctor.API.API;
 import ml.zdoctor.API.InvseeOpenEvent;
+import ml.zdoctor.utils.CCommand;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static ml.zdoctor.API.API.*;
 
-public class Invsee implements CommandExecutor {
+public class Invsee extends CCommand {
+
+    public Invsee() {
+        super(getSettingString("invsee.command"));
+    }
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+    public void run(CommandSender sender, String cl, String[] args) {
 
         int distance = getSettingInt("invsee.max-distance");
 
-        if (command.getName().equalsIgnoreCase(getSettingString("invsee.command"))) {
+        if (sender.hasPermission(API.getPermission("invsee"))) {
             if (sender instanceof Player) {
                 if (args.length == 1) {
                     Player criminal = Bukkit.getPlayer(args[0]);
@@ -36,7 +39,8 @@ public class Invsee implements CommandExecutor {
             } else {
                 sender.sendMessage(getConfigMessage("general.only-players"));
             }
+        } else {
+            sender.sendMessage(getConfigMessage("general.no-permission"));
         }
-        return true;
     }
 }
