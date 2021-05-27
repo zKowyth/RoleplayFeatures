@@ -34,20 +34,12 @@ public final class RoleplayFeatures extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EmergencyCalls(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractEvents(), this);
 
-        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Mask(), new Police(), new Receipt(), new Rf());
+        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf());
 
         getLogger().info(Color("&e------------------"));
         getLogger().info(Color("&6&l RoleplayFeatures "));
         getLogger().info(Color("&7      v"+getDescription().getVersion()));
         getLogger().info(Color("&e------------------"));
-
-
-        if (getServer().getPluginManager().isPluginEnabled("TAB")) {
-            getServer().getPluginManager().registerEvents(new MaskEvents(), this);
-            getLogger().info(Color("&aTAB plugin found! Mask enabled!"));
-        } else {
-            getLogger().info(Color("&cTAB plugin not found! Mask not enabled!"));
-        }
 
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")){
             new Expansion().register();
