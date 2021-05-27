@@ -2,14 +2,14 @@ package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
 import ml.zdoctor.API.AmbulanceCallEvent;
-import ml.zdoctor.utils.CCommand;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import static ml.zdoctor.API.API.*;
 
-public class Ambulance extends CCommand {
+public class Ambulance extends CommandMaker {
 
     public Ambulance() {
         super(getSettingString("ambulance.command"));

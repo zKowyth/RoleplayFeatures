@@ -1,9 +1,8 @@
 package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
-import ml.zdoctor.API.AmbulanceCallEvent;
 import ml.zdoctor.API.PoliceCallEvent;
-import ml.zdoctor.utils.CCommand;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -11,7 +10,7 @@ import org.bukkit.entity.Player;
 import static ml.zdoctor.API.API.getConfigMessage;
 import static ml.zdoctor.API.API.getSettingString;
 
-public class Police extends CCommand {
+public class Police extends CommandMaker {
 
     public Police() {
         super(getSettingString("police.command"));

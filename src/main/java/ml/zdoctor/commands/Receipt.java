@@ -1,9 +1,8 @@
 package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
-import ml.zdoctor.API.AmbulanceCallEvent;
 import ml.zdoctor.API.ReceiptGivenEvent;
-import ml.zdoctor.utils.CCommand;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
@@ -16,7 +15,7 @@ import java.util.List;
 
 import static ml.zdoctor.API.API.*;
 
-public class Receipt extends CCommand {
+public class Receipt extends CommandMaker {
 
     public Receipt() {
         super(getSettingString("receipt.command"));

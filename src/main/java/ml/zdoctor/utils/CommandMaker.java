@@ -6,10 +6,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
 
-public abstract class CCommand extends Command implements PluginIdentifiableCommand {
+public abstract class CommandMaker extends Command implements PluginIdentifiableCommand {
     CommandSender sender;
-   RoleplayFeatures plugin = RoleplayFeatures.getInstance();
-    protected CCommand(String name) {
+    RoleplayFeatures plugin = RoleplayFeatures.getInstance();
+    protected CommandMaker(String name) {
         super(name);
     }
 

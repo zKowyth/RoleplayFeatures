@@ -1,16 +1,13 @@
 package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
-import ml.zdoctor.API.AmbulanceCallEvent;
 import ml.zdoctor.RoleplayFeatures;
-import ml.zdoctor.utils.CCommand;
-import org.bukkit.Bukkit;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 import static ml.zdoctor.API.API.*;
 
-public class Rf extends CCommand {
+public class Rf extends CommandMaker {
 
     public Rf() {
         super("rf");

@@ -1,7 +1,7 @@
 package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
-import ml.zdoctor.utils.CCommand;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -10,7 +10,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import static ml.zdoctor.API.API.*;
 
-public class Mask extends CCommand {
+public class Mask extends CommandMaker {
 
     public Mask() {
         super(getSettingString("mask.command"));

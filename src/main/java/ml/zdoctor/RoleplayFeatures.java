@@ -5,7 +5,7 @@ import ml.zdoctor.listeners.MaskEvents;
 import ml.zdoctor.listeners.PlayerInteractEvents;
 import ml.zdoctor.commands.*;
 import ml.zdoctor.papi.Expansion;
-import ml.zdoctor.utils.CCommand;
+import ml.zdoctor.utils.CommandMaker;
 import org.bukkit.Bukkit;
 import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.plugin.SimplePluginManager;
@@ -66,7 +66,7 @@ public final class RoleplayFeatures extends JavaPlugin {
         return plugin;
     }
 
-    private void registerCommands(CCommand... commands) {
+    private void registerCommands(CommandMaker... commands) {
         Arrays.stream(commands).forEach(command -> scm.register("pluginname", command));//Register the plugin
     }
 
