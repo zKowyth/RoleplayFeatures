@@ -1,7 +1,6 @@
 package ml.zdoctor;
 
 import ml.zdoctor.listeners.EmergencyCalls;
-import ml.zdoctor.listeners.MaskEvents;
 import ml.zdoctor.listeners.PlayerInteractEvents;
 import ml.zdoctor.commands.*;
 import ml.zdoctor.papi.Expansion;
