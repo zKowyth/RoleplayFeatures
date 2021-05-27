@@ -6,7 +6,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.PluginIdentifiableCommand;
 import org.bukkit.plugin.Plugin;
 
-@SuppressWarnings("all")
 public abstract class CCommand extends Command implements PluginIdentifiableCommand {
     CommandSender sender;
    RoleplayFeatures plugin = RoleplayFeatures.getInstance();
