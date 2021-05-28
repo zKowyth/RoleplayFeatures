@@ -1,7 +1,7 @@
 [![](https://img.shields.io/github/v/release/zDoctor-Dev/RoleplayFeatures?logoColor=success)](https://github.com/zDoctor-Dev/RoleplayFeatures/releases)  [![](https://img.shields.io/badge/zdoctor.ml-%E2%9A%99%EF%B8%8F-blue)](https://zdoctor.ml)
 # RoleplayFeatures
 
-A spigot plugin that adds things of the Demon Slayer Anime
+A spigot plugin that adds features that a roleplay server needs
 
 ## Features
 
