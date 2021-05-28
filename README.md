@@ -1,4 +1,4 @@
-[![](https://img.shields.io/github/v/release/zDoctor-Dev/RoleplayFeatures?logoColor=blue)](https://github.com/zDoctor-Dev/RoleplayFeatures/releases)  [![](https://img.shields.io/badge/zdoctor.ml-%E2%9A%99%EF%B8%8F-green)](https://zdoctor.ml)
+[![](https://img.shields.io/github/v/release/zDoctor-Dev/RoleplayFeatures?logoColor=blue)](https://github.com/zDoctor-Dev/RoleplayFeatures/releases)  [![](https://img.shields.io/badge/zdoctor.ml-%E2%9A%99%EF%B8%8F-success)](https://zdoctor.ml)
 # RoleplayFeatures
 
 A spigot plugin that adds features that a roleplay server needs
