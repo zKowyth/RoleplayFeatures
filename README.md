@@ -5,7 +5,14 @@ A spigot plugin that adds features that a roleplay server needs
 
 ## Features
 
-Features will be added here as soon as they come out.
+Invsee
+Receipt
+Police
+Ambulance
+Mask
+Handcuffs
+
+For more info about features check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/Features)
 
 ## Installation
 
