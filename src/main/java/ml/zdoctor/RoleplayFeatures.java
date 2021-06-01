@@ -58,7 +58,7 @@ public final class RoleplayFeatures extends JavaPlugin {
     }
 
     private void registerCommands(CommandMaker... commands) {
-        Arrays.stream(commands).forEach(command -> scm.register("pluginname", command));//Register the plugin
+        Arrays.stream(commands).forEach(command -> scm.register("roleplayfeatures", command));
     }
 
     private void setupSimpleCommandMap() {
