@@ -20,6 +20,19 @@ messages:
     #{x}, {y} and {z} are the coordinates
     receive-message: '&c&lA player called an ambulance! &7Coordinates: &e{x} {y} {z}'
     called: '&aYou called an ambulance!'
+  age:
+    usage: '&cUsage: /age <5-80>'
+    cant-chat: '&cYou need to set an age first! Type: /age <5-80>'
+    invalid-age: '&cThat''s not a valid age!'
+    age-set: '&aYou are now {age} years old!'
+    cant-change: '&cYou cant change your age!'
+  gender:
+    usage: '&cGender: /gender <male/female>'
+    cant-chat: '&cYou need to set a gender first! Type: /gender <gender>'
+    invalid-age: '&cThat''s not a valid age!'
+    gender-set: '&aYou are now {gender}!'
+    cant-change: '&cYou cant change your gender!'
+  #Coming soon...
   mask:
     helmet-on: '&cYou have a helmet on your head! You cant use the mask.'
 items:
@@ -38,6 +51,7 @@ items:
     lore:
       - '&7Right click on a player'
       - '&7to give him slowness.'
+  #Coming soon...
   mask:
     display-name: '&c&lAnonymous Mask'
     id: SLIME_BALL
@@ -61,6 +75,25 @@ settings:
     #'slowness' or 'nothing'(Use nothing if you want, for example, to make a custom action using the developer API)
     action-on-player: 'slowness'
     slowness-duration: 30
+  gender:
+    command: 'gender'
+    #Allow to chat with the gender not set yet
+    chat-allow: false
+    not-set-placeholder: '&cNot set'
+    can-change-gender: true
+    genders:
+      - male
+      - female
+      - yourgender
+  age:
+    command: 'age'
+    #Allow to chat with the age not set yet
+    chat-allow: false
+    not-set-placeholder: '&cNot set'
+    min-age: 5
+    max-age: 80
+    can-change-age: true
+  #Coming soon...
   mask:
     command: 'mask'
     #{message} is the message the player sent
@@ -76,4 +109,12 @@ permissions:
   police: 'rf.police'
   ambulance: 'rf.ambulance'
   handcuffs: 'rf.handcuffs'
+  gender: 'rf.gender'
+  age: 'rf.age'
+  #Coming soon...
   mask: 'rf.mask'
+#Gender and age of players
+gender_and_age:
+  zDoctor_:
+    age: 21
+    gender: male

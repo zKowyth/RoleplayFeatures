@@ -9,6 +9,8 @@ import org.bukkit.entity.Player;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ml.zdoctor.RoleplayFeatures.*;
+
 public class API {
 
     /**
@@ -85,7 +87,7 @@ public class API {
      * @return The configuration
      */
     public static FileConfiguration getConfiguration() {
-        return RoleplayFeatures.getInstance().getConfig();
+        return getInstance().getConfig();
     }
 
     /**
@@ -94,7 +96,7 @@ public class API {
      * @return A string from the settings section
      */
     public static String getSettingString(String path) {
-        return RoleplayFeatures.getInstance().getConfig().getString("settings."+path);
+        return getInstance().getConfig().getString("settings."+path);
     }
 
     /**
@@ -103,7 +105,7 @@ public class API {
      * @return An integer from the settings section
      */
     public static Integer getSettingInt(String path) {
-        return RoleplayFeatures.getInstance().getConfig().getInt("settings."+path);
+        return getInstance().getConfig().getInt("settings."+path);
     }
 
     /**
@@ -112,6 +114,75 @@ public class API {
      * @return A boolean from the settings section
      */
     public static Boolean getSettingBoolean(String path) {
-        return RoleplayFeatures.getInstance().getConfig().getBoolean("settings." + path);
+        return getInstance().getConfig().getBoolean("settings." + path);
+    }
+
+    /**
+     * Returns a boolean from the settings section
+     *
+     * @return A boolean from the settings section
+     */
+    public static List getSettingList(String path) {
+        return getInstance().getConfig().getList("settings." + path);
+    }
+
+    /**
+     * Returns if the age of a player is set
+     *
+     * @return If the age of a player is set
+     */
+    public static Boolean isAgeSet(String player) {
+        if (getInstance().getConfig().isSet("gender_and_age."+player+".age")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the gender of a player is set
+     *
+     * @return If the gender of a player is set
+     */
+    public static Boolean isGenderSet(String player) {
+        if (getInstance().getConfig().isSet("gender_and_age."+player+".gender")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns the age of a player
+     *
+     * @return The age of a player
+     */
+    public static Integer getAge(String player) {
+
+        return getInstance().getConfig().getInt("gender_and_age."+player+".age");
+    }
+
+    /**
+     * Returns the gender of a player
+     *
+     * @return The gender of a player
+     */
+    public static String getGender(String player) {
+
+        return getInstance().getConfig().getString("gender_and_age."+player+".gender");
+    }
+
+    /**
+     * Sets the age of a player
+     */
+    public static void setAge(String player, Integer age) {
+        getConfiguration().set("gender_and_age."+player+".age", age);
+    }
+
+    /**
+     * Sets the gender of a player
+     */
+    public static void setGender(String player, String gender) {
+        getConfiguration().set("gender_and_age."+player+".gender", gender);
     }
 }

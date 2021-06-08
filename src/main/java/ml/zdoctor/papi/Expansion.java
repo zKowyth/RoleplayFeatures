@@ -6,6 +6,7 @@ import org.bukkit.entity.Player;
 import java.util.concurrent.TimeUnit;
 
 import static ml.zdoctor.time.Time.convertTime;
+import static ml.zdoctor.API.API.*;
 
 public class Expansion extends PlaceholderExpansion {
 
@@ -43,6 +44,22 @@ public class Expansion extends PlaceholderExpansion {
         // %roleplay_minutes%
         if (identifier.equals("seconds")) {
             return String.valueOf(convertTime(p.getWorld().getTime(), TimeUnit.SECONDS));
+        }
+        // %roleplay_player_age%
+        if (identifier.equals("player_age")) {
+            if (isAgeSet(p.getName())) {
+                return getAge(p.getName()).toString();
+            } else {
+                return Color(getSettingString("age.not-set-placeholder"));
+            }
+        }
+        // %roleplay_player_gender%
+        if (identifier.equals("player_gender")) {
+            if (isGenderSet(p.getName())) {
+                return getGender(p.getName());
+            } else {
+                return Color(getSettingString("gender.not-set-placeholder"));
+            }
         }
 
         return null;

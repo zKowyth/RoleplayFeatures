@@ -33,7 +33,7 @@ public final class RoleplayFeatures extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EmergencyCalls(), this);
         getServer().getPluginManager().registerEvents(new PlayerInteractEvents(), this);
 
-        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf());
+        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf(), new Age(), new Age());
 
         getLogger().info(Color("&e------------------"));
         getLogger().info(Color("&6&l RoleplayFeatures "));
