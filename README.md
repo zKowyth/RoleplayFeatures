@@ -11,6 +11,9 @@ A spigot plugin that adds features that a roleplay server needs
 * Ambulance
 * Mask
 * Handcuffs
+* Age
+* Gender
+* Time
 
 For more info about features check the [wiki](https://github.com/zDoctor-Dev/RoleplayFeatures/wiki/Features)
 
