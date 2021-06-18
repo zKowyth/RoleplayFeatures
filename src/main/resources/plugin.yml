@@ -6,3 +6,4 @@ description: Add some features that a roleplay needs
 website: zdoctor.ml
 softdepend:
   - PlaceholderAPI
+  - TAB

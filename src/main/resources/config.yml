@@ -32,9 +32,9 @@ messages:
     invalid-age: '&cThat''s not a valid age!'
     gender-set: '&aYou are now {gender}!'
     cant-change: '&cYou cant change your gender!'
-  #Coming soon...
   mask:
     helmet-on: '&cYou have a helmet on your head! You cant use the mask.'
+    mask-received: '&aMask received!'
 items:
   receipt:
     #{company} is the company argument of the /receipt command
@@ -51,7 +51,6 @@ items:
     lore:
       - '&7Right click on a player'
       - '&7to give him slowness.'
-  #Coming soon...
   mask:
     display-name: '&c&lAnonymous Mask'
     id: SLIME_BALL
@@ -59,6 +58,8 @@ items:
       - '&7Right click to put the mask on'
       - '&7and hide your name!'
 settings:
+  general:
+    update-checker-enabled: true
   receipt:
     command: 'receipt'
   invsee:
@@ -93,10 +94,9 @@ settings:
     min-age: 5
     max-age: 80
     can-change-age: true
-  #Coming soon...
   mask:
     command: 'mask'
-    #{message} is the message the player sent
+    #{message} is the message the player senT
     message-format: '&7Anonymous: {message}'
     chat-distance: 10
 permissions:
@@ -111,8 +111,8 @@ permissions:
   handcuffs: 'rf.handcuffs'
   gender: 'rf.gender'
   age: 'rf.age'
-  #Coming soon...
   mask: 'rf.mask'
+  update-checker-message: ''
 #Gender and age of players
 gender_and_age:
   zDoctor_:

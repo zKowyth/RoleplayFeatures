@@ -27,6 +27,8 @@ public class Rf extends CommandMaker {
                 sender.sendMessage(Color("&6/"+getSettingString("ambulance.command")+" &7» &eCall an ambulance"));
                 sender.sendMessage(Color("&6/"+getSettingString("mask.command")+" &7» &eGet a mask"));
                 sender.sendMessage(Color("&6/"+getSettingString("handcuffs.command")+" &7» &eGet handcuffs"));
+                sender.sendMessage(Color("&6/"+getSettingString("age.command")+" &7» &eSet an age"));
+                sender.sendMessage(Color("&6/"+getSettingString("gender.command")+" &7» &eSet a gender"));
             } else {
                 sender.sendMessage(Color("&a&lRoleplayFeatures &7By zDoctor_"));
             }

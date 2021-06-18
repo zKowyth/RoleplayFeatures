@@ -10,7 +10,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import static ml.zdoctor.API.API.*;
 
-public class PlayerInteractEvents implements Listener {
+public class HandcuffsEvents implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent e) {

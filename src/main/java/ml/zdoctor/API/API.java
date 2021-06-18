@@ -3,8 +3,11 @@ package ml.zdoctor.API;
 import me.clip.placeholderapi.PlaceholderAPI;
 import ml.zdoctor.RoleplayFeatures;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -184,5 +187,24 @@ public class API {
      */
     public static void setGender(String player, String gender) {
         getConfiguration().set("gender_and_age."+player+".gender", gender);
+    }
+
+    /**
+     * Returns if the player has the mask
+     *
+     * @return If the player has the mask
+     */
+    public static Boolean hasMask(Player player) {
+        ItemStack mask = new ItemStack(Material.valueOf(getIDOfItem("mask")));
+        ItemMeta meta = mask.getItemMeta();
+        meta.setDisplayName(PlaceHolders(player, getDisplayNameOfItem("mask")));
+        meta.setLore(getLoreOfItem("mask"));
+        mask.setItemMeta(meta);
+
+        if (player.getInventory().getHelmet() != null && player.getInventory().getHelmet().equals(mask)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

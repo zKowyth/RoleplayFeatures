@@ -1,10 +1,10 @@
 package ml.zdoctor;
 
-import ml.zdoctor.listeners.EmergencyCalls;
-import ml.zdoctor.listeners.PlayerInteractEvents;
+import ml.zdoctor.listeners.*;
 import ml.zdoctor.commands.*;
 import ml.zdoctor.papi.Expansion;
 import ml.zdoctor.utils.CommandMaker;
+import ml.zdoctor.utils.UpdateChecker;
 import org.bukkit.Bukkit;
 import org.bukkit.command.SimpleCommandMap;
 import org.bukkit.plugin.SimplePluginManager;
@@ -29,11 +29,12 @@ public final class RoleplayFeatures extends JavaPlugin {
 
         setupSimpleCommandMap();
 
-
         getServer().getPluginManager().registerEvents(new EmergencyCalls(), this);
-        getServer().getPluginManager().registerEvents(new PlayerInteractEvents(), this);
+        getServer().getPluginManager().registerEvents(new HandcuffsEvents(), this);
+        getServer().getPluginManager().registerEvents(new AgeGenderEvents(), this);
+        getServer().getPluginManager().registerEvents(new GeneralEvents(), this);
 
-        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf(), new Age(), new Age());
+        registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf(), new Age(), new Mask(), new Gender());
 
         getLogger().info(Color("&e------------------"));
         getLogger().info(Color("&6&l RoleplayFeatures "));
@@ -46,6 +47,25 @@ public final class RoleplayFeatures extends JavaPlugin {
         } else {
             getLogger().info(Color("&cPlaceholderAPI is not enabled, time expansion not registered!"));
         }
+
+        if (Bukkit.getPluginManager().isPluginEnabled("TAB")) {
+            getLogger().info(Color("&aTAB plugin found, mask enabled!"));
+            getServer().getPluginManager().registerEvents(new MaskEvents(), this);
+        } else {
+            getLogger().info(Color("&cTAB plugin not found, mask not enabled!"));
+        }
+
+        if (getSettingBoolean("general.update-checker-enabled")) {
+            new UpdateChecker(this, 92730).getVersion(version -> {
+                if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                    getLogger().info("§aThere are no updates!");
+                } else {
+                    getLogger().info("§eThere is a new update available! Check the spigot page:");
+                    getLogger().info("§f§nhttps://www.spigotmc.org/resources/roleplayfeatures-fully-configurable-%E2%97%8F-must-have.92730/");
+                }
+            });
+        }
+
     }
 
     @Override
