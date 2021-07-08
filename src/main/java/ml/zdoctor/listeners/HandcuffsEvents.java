@@ -15,7 +15,7 @@ public class HandcuffsEvents implements Listener {
     @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent e) {
         if (getSettingString("handcuffs.action-on-player").equalsIgnoreCase("slowness")) {
-            if (e.getPlayer().getInventory().getItemInMainHand() != null) {
+            if (e.getPlayer().getInventory().getItemInMainHand() != null && e.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
                 if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(getDisplayNameOfItem("handcuffs"))) {
                     if (e.getRightClicked().getType().equals(EntityType.PLAYER)) {
                         Player player = (Player) e.getRightClicked();
