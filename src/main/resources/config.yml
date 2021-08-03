@@ -4,6 +4,7 @@ messages:
     player-not-online: '&cThe player is not online!'
     only-players: '&cOnly players can do this!'
     no-permission: '&cYou dont have permissions to use this command!'
+    not-enabled: '&cThis feature is not enabled!'
   receipt:
     usage: '&cUsage: /receipt <player> <money> <company> <items>'
     receipt-given: '&aYou gave a receipt to {player}'
@@ -35,6 +36,8 @@ messages:
   mask:
     helmet-on: '&cYou have a helmet on your head! You cant use the mask.'
     mask-received: '&aMask received!'
+  disable-player-pvp:
+    cant-pvp: '&cYou cant hit other players!'
 items:
   receipt:
     #{company} is the company argument of the /receipt command
@@ -61,22 +64,28 @@ settings:
   general:
     update-checker-enabled: true
   receipt:
+    enabled: true
     command: 'receipt'
   invsee:
+    enabled: true
     command: 'invsee'
     max-distance: 5
   police:
+    enabled: true
     command: 'police'
     receive-permission: 'rf.police.receive'
   ambulance:
+    enabled: true
     command: 'ambulance'
     receive-permission: 'rf.ambulance.receive'
   handcuffs:
+    enabled: true
     command: 'handcuffs'
     #'slowness' or 'nothing'(Use nothing if you want, for example, to make a custom action using the developer API)
     action-on-player: 'slowness'
     slowness-duration: 30
   gender:
+    enabled: true
     command: 'gender'
     #Allow to chat with the gender not set yet
     chat-allow: false
@@ -87,6 +96,7 @@ settings:
       - female
       - yourgender
   age:
+    enabled: true
     command: 'age'
     #Allow to chat with the age not set yet
     chat-allow: false
@@ -95,10 +105,14 @@ settings:
     max-age: 80
     can-change-age: true
   mask:
+    enabled: true
     command: 'mask'
     #{message} is the message the player senT
     message-format: '&7Anonymous: {message}'
     chat-distance: 10
+  disable-player-pvp:
+    enabled: true
+    cant-do-it-message-enabled: true
 permissions:
   help: 'rf.help'
   reload: 'rf.reload'
@@ -112,7 +126,7 @@ permissions:
   gender: 'rf.gender'
   age: 'rf.age'
   mask: 'rf.mask'
-  update-checker-message: ''
+  update-checker-message: 'rf.updates'
 #Gender and age of players
 gender_and_age:
   zDoctor_:

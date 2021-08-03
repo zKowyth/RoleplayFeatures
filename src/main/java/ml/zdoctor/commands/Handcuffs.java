@@ -2,6 +2,7 @@ package ml.zdoctor.commands;
 
 import ml.zdoctor.API.API;
 import ml.zdoctor.utils.CommandMaker;
+import ml.zdoctor.utils.Features;
 import org.bukkit.Material;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -18,20 +19,26 @@ public class Handcuffs extends CommandMaker {
     @Override
     public void run(CommandSender sender, String cl, String[] args) {
 
-        if (sender.hasPermission(API.getPermission("handcuffs"))) {
-            if (sender instanceof Player) {
-                ItemStack handcuffs = new ItemStack(Material.valueOf(getIDOfItem("handcuffs")));
-                ItemMeta meta = handcuffs.getItemMeta();
-                meta.setDisplayName(PlaceHolders((Player) sender, getDisplayNameOfItem("handcuffs")));
-                meta.setLore(getLoreOfItem("handcuffs"));
-                handcuffs.setItemMeta(meta);
+        if (Features.isEnabled(Features.Feature.HANDCUFFS)) {
+            if (sender.hasPermission(API.getPermission("handcuffs"))) {
+                if (sender instanceof Player) {
+                    ItemStack handcuffs = new ItemStack(Material.valueOf(getIDOfItem("handcuffs")));
+                    ItemMeta meta = handcuffs.getItemMeta();
+                    meta.setDisplayName(PlaceHolders((Player) sender, getDisplayNameOfItem("handcuffs")));
+                    meta.setLore(getLoreOfItem("handcuffs"));
+                    handcuffs.setItemMeta(meta);
 
-                ((Player) sender).getInventory().addItem(handcuffs);
+                    ((Player) sender).getInventory().addItem(handcuffs);
+                } else {
+                    sender.sendMessage(getConfigMessage("general.only-players"));
+                }
             } else {
-                sender.sendMessage(getConfigMessage("general.only-players"));
+                sender.sendMessage(getConfigMessage("general.no-permission"));
             }
         } else {
-            sender.sendMessage(getConfigMessage("general.no-permission"));
+            sender.sendMessage(getConfigMessage("general.not-enabled"));
         }
+
+
     }
 }

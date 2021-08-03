@@ -1,5 +1,6 @@
 package ml.zdoctor.listeners;
 
+import ml.zdoctor.utils.Features;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -14,12 +15,15 @@ public class HandcuffsEvents implements Listener {
 
     @EventHandler
     public void onPlayerInteract(PlayerInteractEntityEvent e) {
-        if (getSettingString("handcuffs.action-on-player").equalsIgnoreCase("slowness")) {
-            if (e.getPlayer().getInventory().getItemInMainHand() != null && e.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
-                if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(getDisplayNameOfItem("handcuffs"))) {
-                    if (e.getRightClicked().getType().equals(EntityType.PLAYER)) {
-                        Player player = (Player) e.getRightClicked();
-                        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, getSettingInt("handcuffs.slowness-duration"), 2, false, false));
+
+        if (Features.isEnabled(Features.Feature.HANDCUFFS)) {
+            if (getSettingString("handcuffs.action-on-player").equalsIgnoreCase("slowness")) {
+                if (e.getPlayer().getInventory().getItemInMainHand() != null && e.getPlayer().getInventory().getItemInMainHand().getItemMeta() != null) {
+                    if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().getDisplayName().equals(getDisplayNameOfItem("handcuffs"))) {
+                        if (e.getRightClicked().getType().equals(EntityType.PLAYER)) {
+                            Player player = (Player) e.getRightClicked();
+                            player.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, getSettingInt("handcuffs.slowness-duration"), 2, false, false));
+                        }
                     }
                 }
             }

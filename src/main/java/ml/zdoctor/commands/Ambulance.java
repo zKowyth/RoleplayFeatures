@@ -3,6 +3,7 @@ package ml.zdoctor.commands;
 import ml.zdoctor.API.API;
 import ml.zdoctor.API.AmbulanceCallEvent;
 import ml.zdoctor.utils.CommandMaker;
+import ml.zdoctor.utils.Features;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,14 +18,18 @@ public class Ambulance extends CommandMaker {
     @Override
     public void run(CommandSender sender, String cl, String[] args) {
 
-        if (sender.hasPermission(API.getPermission("ambulance"))) {
-            if (sender instanceof Player) {
-                Bukkit.getServer().getPluginManager().callEvent(new AmbulanceCallEvent((Player) sender));
+        if (Features.isEnabled(Features.Feature.AMBULANCE)) {
+            if (sender.hasPermission(API.getPermission("ambulance"))) {
+                if (sender instanceof Player) {
+                    Bukkit.getServer().getPluginManager().callEvent(new AmbulanceCallEvent((Player) sender));
+                } else {
+                    sender.sendMessage(getConfigMessage("general.only-players"));
+                }
             } else {
-                sender.sendMessage(getConfigMessage("general.only-players"));
+                sender.sendMessage(getConfigMessage("general.no-permission"));
             }
         } else {
-            sender.sendMessage(getConfigMessage("general.no-permission"));
+            sender.sendMessage(getConfigMessage("general.not-enabled"));
         }
     }
 }

@@ -1,6 +1,7 @@
 package ml.zdoctor.API;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import ml.zdoctor.utils.Features;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -32,6 +33,15 @@ public class API {
     public static String PlaceHolders(Player p, String string) {
         string = PlaceholderAPI.setPlaceholders(p, string);
         return string;
+    }
+
+    /**
+     * Returns if a feature is enabled
+     *
+     * @return if a feature is enabled
+     */
+    public static boolean isEnabled(Features.Feature feature) {
+        return Features.isEnabled(feature);
     }
 
     /**

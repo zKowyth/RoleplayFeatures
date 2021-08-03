@@ -33,6 +33,7 @@ public final class RoleplayFeatures extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new HandcuffsEvents(), this);
         getServer().getPluginManager().registerEvents(new AgeGenderEvents(), this);
         getServer().getPluginManager().registerEvents(new GeneralEvents(), this);
+        getServer().getPluginManager().registerEvents(new DisablePlayerPvP(), this);
 
         registerCommands(new Ambulance(), new Handcuffs(), new Invsee(), new Police(), new Receipt(), new Rf(), new Age(), new Mask(), new Gender());
 

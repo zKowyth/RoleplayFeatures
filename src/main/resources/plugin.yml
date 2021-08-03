@@ -3,7 +3,7 @@ version: ${project.version}
 main: ml.zdoctor.RoleplayFeatures
 authors: [ zDoctor_ ]
 description: Add some features that a roleplay needs
-website: zdoctor.ml
+website: www.zdoctor.ml
 softdepend:
   - PlaceholderAPI
   - TAB

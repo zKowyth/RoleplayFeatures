@@ -3,6 +3,7 @@ package ml.zdoctor.commands;
 import ml.zdoctor.API.API;
 import ml.zdoctor.API.InvseeOpenEvent;
 import ml.zdoctor.utils.CommandMaker;
+import ml.zdoctor.utils.Features;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -17,30 +18,36 @@ public class Invsee extends CommandMaker {
     @Override
     public void run(CommandSender sender, String cl, String[] args) {
 
-        int distance = getSettingInt("invsee.max-distance");
+        if (Features.isEnabled(Features.Feature.INVSEE)) {
+            int distance = getSettingInt("invsee.max-distance");
 
-        if (sender.hasPermission(API.getPermission("invsee"))) {
-            if (sender instanceof Player) {
-                if (args.length == 1) {
-                    Player criminal = Bukkit.getPlayer(args[0]);
-                    if (criminal.isOnline()) {
-                        if (((Player) sender).getLocation().distance(criminal.getLocation()) < distance) {
-                            ((Player) sender).openInventory(criminal.getInventory());
-                            Bukkit.getServer().getPluginManager().callEvent(new InvseeOpenEvent((Player) sender, criminal, criminal.getInventory()));
+            if (sender.hasPermission(API.getPermission("invsee"))) {
+                if (sender instanceof Player) {
+                    if (args.length == 1) {
+                        Player criminal = Bukkit.getPlayer(args[0]);
+                        if (criminal.isOnline()) {
+                            if (((Player) sender).getLocation().distance(criminal.getLocation()) < distance) {
+                                ((Player) sender).openInventory(criminal.getInventory());
+                                Bukkit.getServer().getPluginManager().callEvent(new InvseeOpenEvent((Player) sender, criminal, criminal.getInventory()));
+                            } else {
+                                sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.too-distant").replace("{distance}", String.valueOf(distance))));
+                            }
                         } else {
-                            sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.too-distant").replace("{distance}", String.valueOf(distance))));
+                            sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("general.player-not-online")));
                         }
                     } else {
-                        sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("general.player-not-online")));
+                        sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.usage")));
                     }
                 } else {
-                    sender.sendMessage(PlaceHolders((Player) sender, getConfigMessage("invsee.usage")));
+                    sender.sendMessage(getConfigMessage("general.only-players"));
                 }
             } else {
-                sender.sendMessage(getConfigMessage("general.only-players"));
+                sender.sendMessage(getConfigMessage("general.no-permission"));
             }
         } else {
-            sender.sendMessage(getConfigMessage("general.no-permission"));
+            sender.sendMessage(getConfigMessage("general.not-enabled"));
         }
+
+
     }
 }
