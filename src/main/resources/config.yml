@@ -36,8 +36,6 @@ messages:
   mask:
     helmet-on: '&cYou have a helmet on your head! You cant use the mask.'
     mask-received: '&aMask received!'
-  disable-player-pvp:
-    cant-pvp: '&cYou cant hit other players!'
 items:
   receipt:
     #{company} is the company argument of the /receipt command
@@ -110,9 +108,6 @@ settings:
     #{message} is the message the player senT
     message-format: '&7Anonymous: {message}'
     chat-distance: 10
-  disable-player-pvp:
-    enabled: true
-    cant-do-it-message-enabled: true
 permissions:
   help: 'rf.help'
   reload: 'rf.reload'
